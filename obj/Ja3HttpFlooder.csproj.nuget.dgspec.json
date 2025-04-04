@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\bolog\\Desktop\\ohgod\\Ja3HttpFlooder\\Ja3HttpFlooder.csproj": {}
+    "C:\\Users\\bolog\\Desktop\\GitHub Repositories\\Ja3HttpFlooder\\Ja3HttpFlooder.csproj": {}
   },
   "projects": {
-    "C:\\Users\\bolog\\Desktop\\ohgod\\Ja3HttpFlooder\\Ja3HttpFlooder.csproj": {
+    "C:\\Users\\bolog\\Desktop\\GitHub Repositories\\Ja3HttpFlooder\\Ja3HttpFlooder.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\bolog\\Desktop\\ohgod\\Ja3HttpFlooder\\Ja3HttpFlooder.csproj",
+        "projectUniqueName": "C:\\Users\\bolog\\Desktop\\GitHub Repositories\\Ja3HttpFlooder\\Ja3HttpFlooder.csproj",
         "projectName": "Ja3HttpFlooder",
-        "projectPath": "C:\\Users\\bolog\\Desktop\\ohgod\\Ja3HttpFlooder\\Ja3HttpFlooder.csproj",
+        "projectPath": "C:\\Users\\bolog\\Desktop\\GitHub Repositories\\Ja3HttpFlooder\\Ja3HttpFlooder.csproj",
         "packagesPath": "C:\\Users\\bolog\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\bolog\\Desktop\\ohgod\\Ja3HttpFlooder\\obj\\",
+        "outputPath": "C:\\Users\\bolog\\Desktop\\GitHub Repositories\\Ja3HttpFlooder\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\bolog\\AppData\\Roaming\\NuGet\\NuGet.Config",

