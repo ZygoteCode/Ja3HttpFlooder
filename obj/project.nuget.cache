@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "6hzggv7zr2M=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\bolog\\Desktop\\GitHub Repositories\\Ja3HttpFlooder\\Ja3HttpFlooder.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\bolog\\.nuget\\packages\\bouncycastle.cryptography\\2.5.1\\bouncycastle.cryptography.2.5.1.nupkg.sha512"
+  ],
+  "logs": []
+}
